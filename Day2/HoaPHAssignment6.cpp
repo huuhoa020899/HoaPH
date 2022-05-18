@@ -3,24 +3,6 @@
 #include<cstring>
 #include <cstdlib>
 using namespace std;
-/***************************************************
-function:matrixAllocate
-dircription:Allocate for matrix pointer
-In:pArr Pointer is allocated in function importData
-In:szRow:Row size of matrix
-In:szCol: Column size of matrix
-Returns the memory allocated for the matrix
-***************************************************/
-int** matrixAllocate(int**pArr,int szRow,int szCol)
-{
-	pArr=new int*[szRow];
-	for (int indexRow = 0; indexRow< szRow; indexRow++)
-	{
-        pArr[indexRow] = new int[szCol];
-    }
-    //memset(pArr,0,sizeof(pArr[0][0])*szRow*szCol);
-    return pArr;
-}
 /******************************************************
 function importData:
 Parameter
@@ -36,7 +18,6 @@ bool importData(int**pArr,int szRow,int szCol)
     for (indexRow = 0; indexRow< szRow; indexRow++){
         pArr[indexRow] = new int[szCol];
     }*/
-    //pArr=matrixAllocate(pArr,szRow,szCol);
     if(pArr)
     {
     	//memset(pArr,0x00,sizeof(pArr[0][0])*szRow*szCol);
@@ -123,8 +104,8 @@ int main()
 	cin>>szRow;
 	cout<<"\nEnter Colums: ";
 	cin>>szCol;
-	//pArr=new int*[szRow];
-    /*for (int indexRow = 0; indexRow< szRow; indexRow++)
+	pArr=new int*[szRow];
+    for (int indexRow = 0; indexRow< szRow; indexRow++)
 	{
         pArr[indexRow] = new int[szCol];
     }
@@ -132,9 +113,7 @@ int main()
     for (int indexRow = 0; indexRow< szRow; indexRow++)
 	{
         pArr2[indexRow] = new int[szCol];
-    }*/
-    pArr =matrixAllocate(pArr,szRow,szCol);
-    pArr2=matrixAllocate(pArr2,szRow,szCol);
+    }
 	cout<<"\nImport matrix One:";
 	importData(pArr,szRow,szCol);
 	cout<<"\nMatrix One:";
