@@ -1,20 +1,22 @@
 #include<iostream>
+#include <assert.h>
 using namespace std;
-float Plus(float a,float b)
+float plus(float a,float b)
 {
 	return a+b;
 }
-float Minus(float a,float b)
+float minus(float a,float b)
 {
 	return a-b;
 }
-float Multiply(float a,float b)
+float multiply(float a,float b)
 {
 	return a*b;
 }
-float Divide(float a, float b)
+float divide(float a, float b)
 {
-	return a/b;
+	assert(b != 0); 
+    return a/b;
 }
 void operation(float a,float b, float (*p2Func)(float,float))
 {
@@ -30,12 +32,12 @@ int main()
 	cout<<"\nEnter Number b: ";
 	cin>>b;
 	cout<<"\nPlus two number:";
-	operation(a,b,&Plus);
+	operation(a,b,&::plus);
 	cout<<"\nMinus two number:";
-	operation(a,b,&Minus);
+	operation(a,b,&::minus);
 	cout<<"\nMultiply two number:";
-	operation(a,b,&Multiply);
+	operation(a,b,&multiply);
 	cout<<"\nDivide two number:";
-	operation(a,b,Divide);
+	operation(a,b,&divide);
 	return 0;
 }
