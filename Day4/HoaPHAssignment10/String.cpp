@@ -6,12 +6,13 @@ In:s_str_2 type class String
 return result plus two Character string
 description:function support plus two Character string
 *******************************************************/
-String operator + ( const String s_str_1, const String s_str_2)
+String operator + ( const String &s_str_1, const String &s_str_2)
 {
 	String s_str_pls;
 	int index;
 	int jndex;
-	s_str_pls.str=s_str_1.str;
+	s_str_pls=s_str_1;
+	//s_str_pls.str=s_str_1.str;
 	for(index=0; s_str_pls.str[index]!='\0'; ++index); 
    	for(jndex=0; s_str_2.str[jndex]!='\0'; ++jndex, ++index)
    	{
